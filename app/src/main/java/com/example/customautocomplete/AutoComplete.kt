@@ -1,6 +1,7 @@
 package com.example.customautocomplete
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -12,6 +13,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.ArrowDropDown
+import androidx.compose.material.icons.rounded.KeyboardArrowDown
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Size
@@ -120,8 +122,10 @@ fun AutoComplete() {
                     trailingIcon = {
                         IconButton(onClick = { expanded = !expanded }) {
                             Icon(
-                                imageVector = Icons.Rounded.ArrowDropDown,
-                                contentDescription = "arrow"
+                                modifier = Modifier.size(24.dp),
+                                imageVector = Icons.Rounded.KeyboardArrowDown,
+                                contentDescription = "arrow",
+                                tint = Color.Black
                             )
                         }
                     }
@@ -133,7 +137,8 @@ fun AutoComplete() {
                     modifier = Modifier
                         .padding(horizontal = 5.dp)
                         .width(textFieldSize.width.dp),
-                    elevation = 10.dp
+                    elevation = 15.dp,
+                    shape = RoundedCornerShape(10.dp)
                 ) {
 
                     LazyColumn(
